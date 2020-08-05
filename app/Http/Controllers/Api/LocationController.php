@@ -83,6 +83,7 @@ class LocationController extends Controller
                 'street_no'     =>$request->input('street_no'),
                 'postal_code'   =>$request->input('postal_code'),
                 'country_code'  =>$request->input('country_code', 'nl'),
+                'hex_color'     =>$request->input('hex_color'),
             ]);
 
         //die(print_r($location));
@@ -101,8 +102,9 @@ class LocationController extends Controller
         $bb_height_cm     = $request->input('bb_height_cm', null); 
         $fr_width_cm      = $request->input('fr_width_cm', null); 
         $fr_height_cm     = $request->input('fr_height_cm', null);
+        $layers           = $request->input('layers', null);
 
-        $hives = $this->hiveFactory->createMultipleHives($user_id, $amount, $location, $prefix, $hive_type_id, $color, $broodLayerAmount, $honeyLayerAmount, $frameAmount, $count_start, $bb_width_cm, $bb_depth_cm, $bb_height_cm, $fr_width_cm, $fr_height_cm);
+        $hives = $this->hiveFactory->createMultipleHives($user_id, $amount, $location, $prefix, $hive_type_id, $color, $broodLayerAmount, $honeyLayerAmount, $frameAmount, $count_start, $bb_width_cm, $bb_depth_cm, $bb_height_cm, $fr_width_cm, $fr_height_cm, $layers);
         
         // print_r($location);
         // die();
@@ -143,6 +145,7 @@ class LocationController extends Controller
         $location->street_no     = $request->input('street_no');
         $location->postal_code   = $request->input('postal_code');
         $location->country_code  = $request->input('country_code', 'nl');
+        $location->hex_color     = $request->input('hex_color');
 
         $request->user()->locations()->save($location);
     }

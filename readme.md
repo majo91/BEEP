@@ -24,6 +24,7 @@ You are free to use the BEEP app, it's free and it will be developed further in 
   * InfluxDB (https://docs.influxdata.com/influxdb/v1.7/introduction/installation/)
   * [Composer](https://getcomposer.org/download/) - Installation tool for PHP/Laravel dependencies for API
   * [npm](https://www.npmjs.com/get-npm) - Installation tool for Javascript/Angular dependencies for App
+  * Redis-Server (https://redis.io/download)
 * Optional: Letsencrypt SSL certificate generation
 
 
@@ -104,7 +105,7 @@ APP (replace 'beep.nl' with your own server)
 </VirtualHost>
 ```
 
-b. Optionally, install SSL certificates to your endpoints with [Let's Encrypt](https://letsencrypt.org/getting-started/)
+b. Install SSL certificates to your endpoints with [Let's Encrypt](https://letsencrypt.org/getting-started/)
 
 On AWS:
 ```
@@ -140,7 +141,7 @@ If you did not run ```./run_actions```, please do so, to install all the databas
 
 a. Set up e-mail credentials in the ```.env``` config file
 
-b. For the webapp to reach the API, rename the file 'public/webapp/js/constants.js.example' to 'public/webapp/js/constants.js' and edit it to change the 'api_url' to your own back-end API end-point
+[b. For the webapp to reach the API, rename the file 'public/webapp/js/constants.js.example' to 'public/webapp/js/constants.js' and edit it to change the 'api_url' to your own back-end API end-point]
 
 c. To enable schedules (e.g. for loading weather data), install a crontab with ```sudo crontab -e``` and add: ```* * * * * cd /home/bitnami/apps/appdir && /opt/bitnami/php/bin/php artisan schedule:run >> /dev/null 2>&1```
 
@@ -154,7 +155,7 @@ c. Promote the user to 'superadmin'
 
 Open your database (with a database viewer like PhpMyadmin, Sequel Pro, MySQL Workbench, etc.), or just do a command line query: 
 Define a relation in table ```role_user``` with ```(1,1)``` (linking user_id 1 to role_id 1). 
-
+SQL Command: "INSERT INTO `role_user` (`user_id`, `role_id`) VALUES ('1', '1')"
 Your user has just been promoted to the super administrator of the system, so you can use the back-end management interface to configure the complete system.
 
 d. Go to ```api.[your_domain]/admin``` to log in with the same credentials that you created your app user with in step 3b.

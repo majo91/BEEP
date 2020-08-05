@@ -4,7 +4,7 @@
  *
  */
 var LANG = [];
-var API_URL = document.URL.indexOf('beep.test') > -1 ? 'https://beep.test/api/' : document.URL.indexOf('test.beep.nl') > -1 ? 'https://test.beep.nl/api/' : 'https://api.beep.nl/api/'; //var API_URL 				= 'https://api.beep.nl/api/';
+var API_URL = document.URL.indexOf('beep.test') > -1 ? 'https://mares3d.com/api/' : document.URL.indexOf('test.mares3d.com') > -1 ? 'https://test.mares3d.com/api/' : 'https://api.mares3d.com/api/'; //var API_URL 				= 'https://api.mares3d.com/';
 
 var CONNECTION_FREQ_REMOTE = 60 * 1000;
 var COLORS = {

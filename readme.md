@@ -32,7 +32,7 @@ You are free to use the BEEP app, it's free and it will be developed further in 
 
 
 ## 1. Clone this repo anywhere you like
-```git clone https://github.com/beepnl/BEEP.git```
+```git clone https://github.com/majo91/BEEP.git```
 
 ## 2. Database
 
@@ -141,7 +141,7 @@ If you did not run ```./run_actions```, please do so, to install all the databas
 
 a. Set up e-mail credentials in the ```.env``` config file
 
-[b. For the webapp to reach the API, rename the file 'public/webapp/js/constants.js.example' to 'public/webapp/js/constants.js' and edit it to change the 'api_url' to your own back-end API end-point]
+b. For the webapp to reach the API, edit the file 'public/app/js/constants.js' to change the 'api_url' to your own back-end API end-point]
 
 c. To enable schedules (e.g. for loading weather data), install a crontab with ```sudo crontab -e``` and add: ```* * * * * cd /home/bitnami/apps/appdir && /opt/bitnami/php/bin/php artisan schedule:run >> /dev/null 2>&1```
 
